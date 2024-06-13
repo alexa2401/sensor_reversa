@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor de Reversa</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function actualizarDistancia() {
+            fetch('/distancia')
+                .then(response => response.json())
+                .then(data => {
+                    const distancia = data.distancia;
+                    const indicador = document.getElementById('indicador');
+                    const etiqueta = document.getElementById('distancia');
+
+                    etiqueta.textContent = `Distancia: ${distancia} cm`;
+
+                    if (distancia < 10) {
+                        indicador.style.backgroundColor = 'red';
+                    } else if (distancia < 30) {
+                        indicador.style.backgroundColor = 'yellow';
+                    } else {
+                        indicador.style.backgroundColor = 'green';
+                    }
+                });
+        }
+
+        setInterval(actualizarDistancia, 1000);
+    </script>
+</head>
+<body>
+    <div id="container">
+        <img id="auto" src="/static/car.png" alt="Coche">
+        <div id="indicador"></div>
+        <p id="distancia">Distancia: --- cm</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#container {
+    position: relative;
+    width: 600px; /* Ajusta el ancho para que incluya el coche y la etiqueta */
+    height: 600px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+}
+
+#auto {
+    width: 280px;
+    height: 600px;
+    display: block;
+}
+
+#indicador {
+    width: 280px;
+    height: 140px;
+    background-color: green;
+    border-radius: 0 0 140px 140px;
+    position: absolute;
+    top: 520px;
+    bottom: -1px;
+    left: 0;
+    opacity: 0.7;
+}
+
+#distancia {
+    margin-left: 20px;
+    font-size: 24px;
+    align-self: flex-start; /* Alinea el texto al inicio del contenedor */
+}
